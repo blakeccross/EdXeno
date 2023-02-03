@@ -10,14 +10,47 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 import { Button, Input, RadioButton, Text } from "../components";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { supabase } from "../provider/initSupabase";
+import { makeRedirectUri, startAsync } from "expo-auth-session";
 
 const Welcome = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [load, setLoad] = useState(false);
 
-  const onLogin = () => {
-    console.log(email, password);
+  const onLogin = async () => {
+    setLoading(true);
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    });
+
+    if (error) Alert.alert(error.message);
+    setLoading(false);
+  };
+
+  const signInWithApple = async () => {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: "apple",
+    });
+    const authResponse = await startAsync({
+      authUrl: data.url,
+      returnUrl: `https://vkenmuxkhhfixrjvbaon.supabase.co/auth/v1/callback`,
+    });
+
+    if (error) Alert.alert(error.message);
+  };
+
+  const signInWithGoogle = async () => {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+    });
+    const authResponse = await startAsync({
+      authUrl: data.url,
+      returnUrl: `https://vkenmuxkhhfixrjvbaon.supabase.co/auth/v1/callback`,
+    });
+
+    if (error) Alert.alert(error.message);
   };
 
   return (
@@ -54,7 +87,7 @@ const Welcome = ({ navigation }) => {
         <Button
           btnTxt={"Sign in with Apple"}
           textCol={"black"}
-          onPress={onLogin}
+          onPress={signInWithApple}
           btnCol={"white"}
           btnStyle={{ marginBottom: 10 }}
           icon={<MaterialCommunityIcons name="apple" size={30} color="black" />}
@@ -62,7 +95,7 @@ const Welcome = ({ navigation }) => {
         <Button
           btnTxt={"Sign in with Google"}
           textCol={"black"}
-          onPress={onLogin}
+          onPress={signInWithGoogle}
           btnCol={"white"}
           btnStyle={{ marginBottom: 10 }}
           icon={
@@ -92,7 +125,7 @@ const Welcome = ({ navigation }) => {
           }}
         >
           <Text txt="New to EdXeno?" textCol="#676970" />
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
             <Text txt=" Sign Up" fontFamily={"Bold"} />
           </TouchableOpacity>
         </View>

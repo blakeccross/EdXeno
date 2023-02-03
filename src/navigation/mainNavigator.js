@@ -3,14 +3,18 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TabNavigator } from "./tabNavigator";
 import Login from "../pages/auth/login";
+import SignUp from "../pages/auth/signup";
 import Welcome from "../pages/welcome";
+import CollegeInfo from "../pages/collegeInfo";
+import Explore from "../pages/explore";
+import Messages from "../pages/messages";
 import "react-native-url-polyfill/auto";
-import { Session } from "@supabase/supabase-js";
 import { supabase } from "../provider/initSupabase";
-import { useSelector, useDispatch } from "react-redux";
-import { getUser } from "../../userSlice";
+import { createSharedElementStackNavigator } from "react-navigation-shared-element";
 
-const Stack = createNativeStackNavigator();
+const Stack = createSharedElementStackNavigator();
+
+//const Stack = createNativeStackNavigator();
 export const MainNavigator = () => {
   const [session, setSession] = useState("");
 
@@ -37,6 +41,21 @@ export const MainNavigator = () => {
               options={{ headerShown: false }}
               initialParams={session}
             />
+            <Stack.Screen
+              name="Explore"
+              component={Explore}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="CollegeInfo"
+              component={CollegeInfo}
+              options={{ headerShown: false }}
+            />
+            {/* <Stack.Screen
+                name="CollegeInfo"
+                component={CollegeInfo}
+                options={{ headerShown: false }}
+              /> */}
           </>
         ) : (
           <>
@@ -48,6 +67,11 @@ export const MainNavigator = () => {
             <Stack.Screen
               name="Login"
               component={Login}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="SignUp"
+              component={SignUp}
               options={{ headerShown: false }}
             />
           </>

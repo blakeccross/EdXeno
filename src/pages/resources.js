@@ -16,7 +16,7 @@ import { supabase } from "../provider/initSupabase";
 import Schools from "../Assets/svg/schools";
 import Star from "../Assets/svg/star";
 
-const Home = ({ navigation }) => {
+const Resources = ({ navigation }) => {
   const [search, setSearch] = useState("");
   const [session, setSession] = useState("");
   const [loading, setLoading] = useState(false);
@@ -71,57 +71,12 @@ const Home = ({ navigation }) => {
         }}
       >
         <View style={{ marginTop: 30, marginBottom: 10 }}>
-          <Text
-            txt={"Welcome,"}
-            size={16}
-            fontFamily="Bold"
-            textCol="#676970"
-          />
-          <Text txt={"Blake Cross"} size={24} fontFamily="Bold" />
-          <Input
-            setValue={setSearch}
-            icon={
-              <Ionicons
-                name="md-search"
-                size={20}
-                color="rgba(17, 20, 32, .24)"
-              />
-            }
-            placeTxt={"Search Colleges, Careers, Majors..."}
-          />
+          <Text txt={"Resources"} size={24} fontFamily="Bold" />
         </View>
       </LinearGradient>
       <ScrollView style={{ padding: 20 }}>
-        <View
-          style={{
-            backgroundColor: "royalblue",
-            borderRadius: 20,
-            padding: 30,
-          }}
-        >
-          <Text
-            txt={"Get personalized\nCollege list with"}
-            size={20}
-            fontFamily="Medium"
-            textCol={"white"}
-          />
-          <Text txt={"EdXeno"} size={40} fontFamily="Bold" textCol={"white"} />
-          <View
-            style={{
-              backgroundColor: "white",
-              borderRadius: 50,
-              height: 45,
-              width: 45,
-              justifyContent: "center",
-              alignItems: "center",
-              marginTop: 20,
-            }}
-          >
-            <MaterialIcons name="arrow-forward" size={30} color="black" />
-          </View>
-        </View>
         <View style={{ marginVertical: 30 }}>
-          <Text txt={"Explore"} fontFamily={"Bold"} size={22} />
+          <Text txt={"Featured Classes"} fontFamily={"Bold"} size={18} />
           <View style={{ flexDirection: "row" }}>
             <View
               style={{
@@ -209,4 +164,4 @@ const Home = ({ navigation }) => {
     </SafeAreaView>
   );
 };
-export default Home;
+export default Resources;

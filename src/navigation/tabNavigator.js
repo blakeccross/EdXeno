@@ -6,12 +6,24 @@ import { MaterialIcons } from "@expo/vector-icons";
 import Home from "../pages/home";
 import Explore from "../pages/explore";
 import Profile from "../pages/profile";
+import Messages from "../pages/messages";
+import Resources from "../pages/resources";
 import {
   Ionicons,
   FontAwesome,
   FontAwesome5,
   Feather,
 } from "@expo/vector-icons";
+import HomeSelected from "../Assets/svg/homeSelected";
+import HomeDeselected from "../Assets/svg/homeDeselected";
+import MailSelected from "../Assets/svg/mailSelected";
+import MailDeselected from "../Assets/svg/mailDeselected";
+import ResourcesSelected from "../Assets/svg/resourcesSelected";
+import ResourcesDeselected from "../Assets/svg/resourcesDeselected";
+import ProfileDeselected from "../Assets/svg/profileDeselected";
+import ProfileSelected from "../Assets/svg/profileSelected";
+import EventsDeselected from "../Assets/svg/eventsDeselected";
+import EventsSelected from "../Assets/svg/eventsSelected";
 
 const Tab = createBottomTabNavigator();
 const Styles = StyleSheet.create({
@@ -57,19 +69,13 @@ export const TabNavigator = (session) => {
         })}
         options={{
           tabBarIcon: ({ focused }) => (
-            <View>
-              {focused ? (
-                <MaterialIcons name="home-filled" size={30} color="blue" />
-              ) : (
-                <MaterialIcons name="home-filled" size={30} color="black" />
-              )}
-            </View>
+            <View>{focused ? <HomeSelected /> : <HomeDeselected />}</View>
           ),
         }}
       />
       <Tab.Screen
-        name="Explore"
-        component={Explore}
+        name="Resources"
+        component={Resources}
         listeners={() => ({
           tabPress: () => {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -78,18 +84,14 @@ export const TabNavigator = (session) => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View>
-              {focused ? (
-                <Ionicons name="md-search" size={30} color="blue" />
-              ) : (
-                <Ionicons name="md-search" size={30} color="black" />
-              )}
+              {focused ? <ResourcesSelected /> : <ResourcesDeselected />}
             </View>
           ),
         }}
       />
       <Tab.Screen
         name="Messages"
-        component={Explore}
+        component={Messages}
         listeners={() => ({
           tabPress: () => {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -97,13 +99,7 @@ export const TabNavigator = (session) => {
         })}
         options={{
           tabBarIcon: ({ focused }) => (
-            <View>
-              {focused ? (
-                <Ionicons name="ios-mail-open-outline" size={30} color="blue" />
-              ) : (
-                <Ionicons name="ios-mail-outline" size={30} color="black" />
-              )}
-            </View>
+            <View>{focused ? <MailSelected /> : <MailDeselected />}</View>
           ),
         }}
       />
@@ -118,13 +114,7 @@ export const TabNavigator = (session) => {
         })}
         options={{
           tabBarIcon: ({ focused }) => (
-            <View>
-              {focused ? (
-                <FontAwesome5 name="calendar" size={24} color="blue" />
-              ) : (
-                <FontAwesome5 name="calendar" size={24} color="black" />
-              )}
-            </View>
+            <View>{focused ? <EventsSelected /> : <EventsDeselected />}</View>
           ),
         }}
       />
@@ -138,13 +128,7 @@ export const TabNavigator = (session) => {
         })}
         options={{
           tabBarIcon: ({ focused }) => (
-            <View>
-              {focused ? (
-                <Feather name="user" size={30} color="blue" />
-              ) : (
-                <Feather name="user" size={30} color="black" />
-              )}
-            </View>
+            <View>{focused ? <ProfileSelected /> : <ProfileDeselected />}</View>
           ),
         }}
       />

@@ -27,7 +27,8 @@ const Login = () => {
       password: password,
     });
 
-    if (error) Alert.alert(error.message);
+    if (error) alert(error.message);
+    console.log(error);
     setLoading(false);
   };
 

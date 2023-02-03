@@ -38,11 +38,11 @@ export const Input = ({
     inputView: {
       flexDirection: "row",
       borderWidth: 0,
-      borderRadius: 15,
+      borderRadius: 12,
       width: "100%",
       backgroundColor: col ? col : "white",
       color: "#000",
-      padding: padding ? padding : 25,
+      padding: padding ? padding : 12,
       shadowColor: "#000",
       shadowOffset: {
         width: 0,
@@ -53,7 +53,7 @@ export const Input = ({
     },
     input: {
       fontFamily: "Medium",
-      fontSize: fontSize ? fontSize : 20,
+      fontSize: fontSize ? fontSize : 12,
       flexGrow: 1,
     },
     label: {

@@ -67,7 +67,6 @@ export default function Profile({ testing }) {
       const updates = {
         id: user.id,
         full_name,
-        username,
         updated_at: new Date(),
       };
 
@@ -99,11 +98,6 @@ export default function Profile({ testing }) {
         </View>
       </LinearGradient>
       <View style={{ padding: 20 }}>
-        <Input
-          label={"Username"}
-          setValue={setUsername}
-          defaultValue={username}
-        />
         <Input
           label={"Full Name"}
           setValue={setFullName}

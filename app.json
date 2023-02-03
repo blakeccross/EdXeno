@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "using-custom-fonts",
+    "name": "EdXeno",
     "slug": "snack-dd633e33-37f2-4f1d-81d6-775fc8f99e59",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -14,9 +14,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },

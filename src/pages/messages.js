@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import { SafeAreaView, View, Image, ScrollView, Pressable } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Button, Input, RadioButton, Text, Card } from "../components";
-import Texas from "../Assets/images/Texas.jpeg";
-import { SharedElement } from "react-navigation-shared-element";
 import { supabase } from "../provider/initSupabase";
 
-const Explore = ({ navigation }) => {
+const Messages = ({ navigation }) => {
   const [search, setSearch] = useState("");
   const [data, setData] = useState(false);
   const [universities, setUniversities] = useState();
@@ -35,8 +33,8 @@ const Explore = ({ navigation }) => {
           paddingHorizontal: 20,
         }}
       >
-        <View style={{ marginTop: 30, marginBottom: 10 }}>
-          <Text txt={"Explore"} size={40} fontFamily="Bold" />
+        <View style={{ marginTop: 20, marginBottom: 10 }}>
+          <Text txt={"Messages"} size={18} fontFamily="SemiBold" />
         </View>
       </LinearGradient>
       {universities && (
@@ -65,18 +63,16 @@ const Explore = ({ navigation }) => {
                 },
               ]}
             >
-              <SharedElement id={`${item.image}`}>
-                <Image
-                  source={{ uri: item.image }}
-                  style={{
-                    width: 80,
-                    height: 80,
-                    borderRadius: 12,
-                    marginRight: 10,
-                  }}
-                  resizeMode={"cover"}
-                />
-              </SharedElement>
+              <Image
+                source={{ uri: item.image }}
+                style={{
+                  width: 55,
+                  height: 55,
+                  borderRadius: 55,
+                  marginRight: 10,
+                }}
+                resizeMode={"cover"}
+              />
               <View style={{ flexDirection: "column" }}>
                 <Text txt={item.name} fontFamily={"Bold"} size={14} />
                 <Text txt={item.location} size={12} />
@@ -88,4 +84,4 @@ const Explore = ({ navigation }) => {
     </SafeAreaView>
   );
 };
-export default Explore;
+export default Messages;
