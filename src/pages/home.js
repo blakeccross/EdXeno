@@ -28,44 +28,16 @@ const Home = ({ navigation }) => {
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
-      console.log("HOME PAGE", session);
     });
   }, []);
 
-  const updateProfile = async (e) => {
-    e.preventDefault();
-
-    try {
-      setLoading(true);
-      const { user } = session;
-
-      const updates = {
-        id: user.id,
-        full_name,
-        username,
-        website,
-        avatar_url,
-        updated_at: new Date(),
-      };
-
-      let { error } = await supabase.from("profiles").upsert(updates);
-
-      if (error) {
-        throw error;
-      }
-    } catch (error) {
-      alert(error.message);
-    } finally {
-      setLoading(false);
-    }
+  const handleSubmit = () => {
+    navigation.navigate("Explore", { search: search });
   };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
-      <LinearGradient
-        colors={["white", "#E6ECF9"]}
-        start={[0.5, 0]}
-        end={[0.5, 1]}
+      <View
         style={{
           paddingHorizontal: 20,
         }}
@@ -88,9 +60,10 @@ const Home = ({ navigation }) => {
               />
             }
             placeTxt={"Search Colleges, Careers, Majors..."}
+            onSubmit={handleSubmit}
           />
         </View>
-      </LinearGradient>
+      </View>
       <ScrollView style={{ padding: 20 }}>
         <View
           style={{
@@ -122,88 +95,87 @@ const Home = ({ navigation }) => {
         </View>
         <View style={{ marginVertical: 30 }}>
           <Text txt={"Explore"} fontFamily={"Bold"} size={22} />
-          <View style={{ flexDirection: "row" }}>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                borderWidth: 0,
-                borderRadius: 15,
-                backgroundColor: "white",
-                padding: 20,
-                shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 4,
-                },
-                shadowOpacity: 0.08,
-                shadowRadius: 24,
-                marginVertical: 10,
-                marginRight: 20,
-              }}
-            >
-              <Schools />
-              <Text
-                txt={"Explore"}
-                fontFamily={"Medium"}
-                size={20}
-                txtStyle={{ marginLeft: 10 }}
-              />
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <View style={{ flexDirection: "row" }}>
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  borderWidth: 0,
+                  borderRadius: 15,
+                  backgroundColor: "white",
+                  padding: 20,
+                  shadowColor: "#000",
+                  shadowOffset: {
+                    width: 0,
+                    height: 4,
+                  },
+                  shadowOpacity: 0.08,
+                  shadowRadius: 24,
+                  marginVertical: 10,
+                  marginRight: 20,
+                }}
+              >
+                <Text
+                  txt={"Explore"}
+                  fontFamily={"Medium"}
+                  size={16}
+                  txtStyle={{ marginLeft: 10 }}
+                />
+              </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  borderWidth: 0,
+                  borderRadius: 15,
+                  backgroundColor: "white",
+                  padding: 20,
+                  shadowColor: "#000",
+                  shadowOffset: {
+                    width: 0,
+                    height: 4,
+                  },
+                  shadowOpacity: 0.08,
+                  shadowRadius: 24,
+                  marginVertical: 10,
+                  marginRight: 20,
+                }}
+              >
+                <Text
+                  txt={"Careers"}
+                  fontFamily={"Medium"}
+                  size={16}
+                  txtStyle={{ marginLeft: 10 }}
+                />
+              </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  borderWidth: 0,
+                  borderRadius: 15,
+                  backgroundColor: "white",
+                  padding: 20,
+                  shadowColor: "#000",
+                  shadowOffset: {
+                    width: 0,
+                    height: 4,
+                  },
+                  shadowOpacity: 0.08,
+                  shadowRadius: 24,
+                  marginVertical: 10,
+                }}
+              >
+                <Text
+                  txt={"Careers"}
+                  fontFamily={"Medium"}
+                  size={20}
+                  txtStyle={{ marginLeft: 10 }}
+                />
+              </View>
             </View>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                borderWidth: 0,
-                borderRadius: 15,
-                backgroundColor: "white",
-                padding: 20,
-                shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 4,
-                },
-                shadowOpacity: 0.08,
-                shadowRadius: 24,
-                marginVertical: 10,
-                marginRight: 20,
-              }}
-            >
-              <Star />
-              <Text
-                txt={"Careers"}
-                fontFamily={"Medium"}
-                size={20}
-                txtStyle={{ marginLeft: 10 }}
-              />
-            </View>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                borderWidth: 0,
-                borderRadius: 15,
-                backgroundColor: "white",
-                padding: 20,
-                shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 4,
-                },
-                shadowOpacity: 0.08,
-                shadowRadius: 24,
-                marginVertical: 10,
-              }}
-            >
-              <Star />
-              <Text
-                txt={"Careers"}
-                fontFamily={"Medium"}
-                size={20}
-                txtStyle={{ marginLeft: 10 }}
-              />
-            </View>
-          </View>
+          </ScrollView>
         </View>
       </ScrollView>
     </SafeAreaView>

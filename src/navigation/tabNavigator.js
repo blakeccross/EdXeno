@@ -8,12 +8,7 @@ import Explore from "../pages/explore";
 import Profile from "../pages/profile";
 import Messages from "../pages/messages";
 import Resources from "../pages/resources";
-import {
-  Ionicons,
-  FontAwesome,
-  FontAwesome5,
-  Feather,
-} from "@expo/vector-icons";
+import Events from "../pages/events";
 import HomeSelected from "../Assets/svg/homeSelected";
 import HomeDeselected from "../Assets/svg/homeDeselected";
 import MailSelected from "../Assets/svg/mailSelected";
@@ -39,12 +34,8 @@ const Styles = StyleSheet.create({
     alignSelf: "center",
   },
   iconView: {
-    //marginVertical: 100,
-    // width: 25,
     height: 50,
     backgroundColor: "red",
-    // alignItems: "center",
-    // justifyContent: "center",
   },
 });
 
@@ -56,7 +47,7 @@ export const TabNavigator = (session) => {
         headerShown: false,
         tabBarStyle: { position: "absolute", height: 100 },
         // tabBarShowLabel: false,
-        tabBarActiveTintColor: "#2B47FC",
+        tabBarActiveTintColor: "#11141F",
       }}
     >
       <Tab.Screen
@@ -90,7 +81,21 @@ export const TabNavigator = (session) => {
         }}
       />
       <Tab.Screen
-        name="Messages"
+        name="Events"
+        component={Events}
+        listeners={() => ({
+          tabPress: () => {
+            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+          },
+        })}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View>{focused ? <EventsSelected /> : <EventsDeselected />}</View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Inbox"
         component={Messages}
         listeners={() => ({
           tabPress: () => {
@@ -100,21 +105,6 @@ export const TabNavigator = (session) => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View>{focused ? <MailSelected /> : <MailDeselected />}</View>
-          ),
-        }}
-      />
-
-      <Tab.Screen
-        name="Events"
-        component={Explore}
-        listeners={() => ({
-          tabPress: () => {
-            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-          },
-        })}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <View>{focused ? <EventsSelected /> : <EventsDeselected />}</View>
           ),
         }}
       />

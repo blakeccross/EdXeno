@@ -37,8 +37,9 @@ export const Input = ({
   const Styles = StyleSheet.create({
     inputView: {
       flexDirection: "row",
-      borderWidth: 0,
+      borderWidth: 1,
       borderRadius: 12,
+      borderColor: "#E3E3E6",
       width: "100%",
       backgroundColor: col ? col : "white",
       color: "#000",
@@ -53,7 +54,7 @@ export const Input = ({
     },
     input: {
       fontFamily: "Medium",
-      fontSize: fontSize ? fontSize : 12,
+      fontSize: fontSize ? fontSize : 16,
       flexGrow: 1,
     },
     label: {

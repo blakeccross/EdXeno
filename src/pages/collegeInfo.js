@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   SafeAreaView,
   TouchableOpacity,
@@ -16,9 +16,25 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { SharedElement } from "react-navigation-shared-element";
 import Texas from "../Assets/images/Texas.jpeg";
 
-const CollegeInfo = ({ navigation }) => {
+const CollegeInfo = ({ navigation, route }) => {
   const [search, setSearch] = useState("");
   const [load, setLoad] = useState(false);
+
+  const getData = async () => {
+    let { data, error } = await supabase.from("universities").select("name");
+
+    if (error) {
+      console.log(error);
+    }
+    if (data) {
+      console.log(data);
+      setEvents(data);
+    }
+  };
+
+  useEffect(() => {
+    console.log(route.params);
+  });
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>

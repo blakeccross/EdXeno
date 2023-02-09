@@ -97,9 +97,8 @@ const Resources = ({ navigation }) => {
                 marginRight: 20,
               }}
             >
-              <Schools />
               <Text
-                txt={"Explore"}
+                txt={"Video 1"}
                 fontFamily={"Medium"}
                 size={20}
                 txtStyle={{ marginLeft: 10 }}
@@ -124,9 +123,8 @@ const Resources = ({ navigation }) => {
                 marginRight: 20,
               }}
             >
-              <Star />
               <Text
-                txt={"Careers"}
+                txt={"Video 2"}
                 fontFamily={"Medium"}
                 size={20}
                 txtStyle={{ marginLeft: 10 }}
@@ -150,14 +148,68 @@ const Resources = ({ navigation }) => {
                 marginVertical: 10,
               }}
             >
-              <Star />
               <Text
-                txt={"Careers"}
+                txt={"Video 3"}
                 fontFamily={"Medium"}
                 size={20}
                 txtStyle={{ marginLeft: 10 }}
               />
             </View>
+          </View>
+        </View>
+        <View style={{ marginVertical: 30 }}>
+          <Text txt={"Popular Courses"} fontFamily={"Bold"} size={18} />
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              borderWidth: 0,
+              borderRadius: 15,
+              backgroundColor: "white",
+              padding: 20,
+              shadowColor: "#000",
+              shadowOffset: {
+                width: 0,
+                height: 4,
+              },
+              shadowOpacity: 0.08,
+              shadowRadius: 24,
+              marginVertical: 10,
+              marginRight: 20,
+            }}
+          >
+            <Text
+              txt={"Video 1"}
+              fontFamily={"Medium"}
+              size={20}
+              txtStyle={{ marginLeft: 10 }}
+            />
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              borderWidth: 0,
+              borderRadius: 15,
+              backgroundColor: "white",
+              padding: 20,
+              shadowColor: "#000",
+              shadowOffset: {
+                width: 0,
+                height: 4,
+              },
+              shadowOpacity: 0.08,
+              shadowRadius: 24,
+              marginVertical: 10,
+              marginRight: 20,
+            }}
+          >
+            <Text
+              txt={"Video 2"}
+              fontFamily={"Medium"}
+              size={20}
+              txtStyle={{ marginLeft: 10 }}
+            />
           </View>
         </View>
       </ScrollView>
