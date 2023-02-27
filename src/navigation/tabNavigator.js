@@ -19,6 +19,9 @@ import ProfileDeselected from "../Assets/svg/profileDeselected";
 import ProfileSelected from "../Assets/svg/profileSelected";
 import EventsDeselected from "../Assets/svg/eventsDeselected";
 import EventsSelected from "../Assets/svg/eventsSelected";
+import InboxStack from "./inboxNavigator";
+import ListDeselected from "../Assets/svg/listDeselected";
+import ListSelected from "../Assets/svg/listSelected";
 
 const Tab = createBottomTabNavigator();
 const Styles = StyleSheet.create({
@@ -46,8 +49,8 @@ export const TabNavigator = (session) => {
       screenOptions={{
         headerShown: false,
         tabBarStyle: { position: "absolute", height: 100 },
-        // tabBarShowLabel: false,
         tabBarActiveTintColor: "#11141F",
+        tabBarLabelStyle: { fontSize: 12 },
       }}
     >
       <Tab.Screen
@@ -61,6 +64,34 @@ export const TabNavigator = (session) => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View>{focused ? <HomeSelected /> : <HomeDeselected />}</View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="My List"
+        component={Profile}
+        listeners={() => ({
+          tabPress: () => {
+            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+          },
+        })}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View>{focused ? <ListSelected /> : <ListDeselected />}</View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Inbox"
+        component={InboxStack}
+        listeners={() => ({
+          tabPress: () => {
+            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+          },
+        })}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View>{focused ? <MailSelected /> : <MailDeselected />}</View>
           ),
         }}
       />
@@ -91,34 +122,6 @@ export const TabNavigator = (session) => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View>{focused ? <EventsSelected /> : <EventsDeselected />}</View>
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Inbox"
-        component={Messages}
-        listeners={() => ({
-          tabPress: () => {
-            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-          },
-        })}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <View>{focused ? <MailSelected /> : <MailDeselected />}</View>
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Profile"
-        component={Profile}
-        listeners={() => ({
-          tabPress: () => {
-            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-          },
-        })}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <View>{focused ? <ProfileSelected /> : <ProfileDeselected />}</View>
           ),
         }}
       />

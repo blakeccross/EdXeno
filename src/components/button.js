@@ -50,7 +50,6 @@ export const Button = ({
             fontFamily="Bold"
             txt={btnTxt}
           />
-          // <Text>{btnTxt}</Text>
         )}
       </TouchableOpacity>
     </View>

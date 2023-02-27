@@ -1,11 +1,10 @@
 import { MainNavigator } from "./src/navigation/mainNavigator";
-import { store } from "./store";
-import { Provider } from "react-redux";
+import { AppProvider } from "./src/provider/AppContext";
 
 export default function App() {
   return (
-    <Provider store={store}>
+    <AppProvider>
       <MainNavigator />
-    </Provider>
+    </AppProvider>
   );
 }

@@ -21,7 +21,7 @@ const CollegeInfo = ({ navigation, route }) => {
   const [load, setLoad] = useState(false);
 
   const getData = async () => {
-    let { data, error } = await supabase.from("universities").select("name");
+    let { data, error } = await supabase.from("universities").select("name").match({ id: 2 });
 
     if (error) {
       console.log(error);
@@ -33,7 +33,7 @@ const CollegeInfo = ({ navigation, route }) => {
   };
 
   useEffect(() => {
-    console.log(route.params);
+    getData
   });
 
   return (

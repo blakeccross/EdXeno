@@ -51,6 +51,7 @@ export const Input = ({
       },
       shadowOpacity: 0.08,
       shadowRadius: 24,
+      height: 50,
     },
     input: {
       fontFamily: "Medium",

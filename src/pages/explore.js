@@ -6,10 +6,9 @@ import Texas from "../Assets/images/Texas.jpeg";
 import { SharedElement } from "react-navigation-shared-element";
 import { supabase } from "../provider/initSupabase";
 import { Ionicons } from "@expo/vector-icons";
-import UniversityDefault from "../Assets/images/university_default.jpeg";
 
 const Explore = ({ navigation, route }) => {
-  const [search, setSearch] = useState(route.params.search);
+  const [search, setSearch] = useState(route?.params?.search);
   const [data, setData] = useState(false);
   const [universities, setUniversities] = useState();
 
