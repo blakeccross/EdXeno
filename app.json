@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "EdXeno",
-    "slug": "snack-dd633e33-37f2-4f1d-81d6-775fc8f99e59",
+    "slug": "edxeno",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,11 +13,9 @@
     },
     "updates": {
       "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/09aca10f-b7cc-491a-aff4-bbe107b24d60"
+      "url": "https://u.expo.dev/ef68bbd7-609f-4329-8fc0-0201ba6e4221"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.blakecross.snackdd633e3337f24f1d81d6775fc8f99e59"
@@ -26,18 +24,20 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.blakecross.snackdd633e3337f24f1d81d6775fc8f99e59"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "09aca10f-b7cc-491a-aff4-bbe107b24d60"
+        "projectId": "ef68bbd7-609f-4329-8fc0-0201ba6e4221"
       }
     },
     "runtimeVersion": {
       "policy": "sdkVersion"
-    }
+    },
+    "owner": "blakecross"
   }
 }

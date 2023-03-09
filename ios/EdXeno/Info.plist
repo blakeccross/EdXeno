@@ -28,6 +28,12 @@
           <string>com.blakecross.snackdd633e3337f24f1d81d6775fc8f99e59</string>
         </array>
       </dict>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>exp+edxeno</string>
+        </array>
+      </dict>
     </array>
     <key>CFBundleVersion</key>
     <string>1</string>
